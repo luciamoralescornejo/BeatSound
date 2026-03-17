@@ -1,17 +1,7 @@
-# beatsound
+Tu app favorita para el descubrimiento musical. 
 
-A new Flutter project.
+BeatSound es una app basada en scroll. ¿Eres artista y estás cansado de no conseguir la visibilidad que te mereces? ¿O eres oyente y estás cansado de siempre escuchar lo mismo?
 
-## Getting Started
+BeatSound es tu app idónea. Tras un registro con correo y contraseña, podrás navegar entre diversos vídeos con los que interactua (like, dislike, ignorar, seguir o bloquear) e ir creando tu propio algoritmo. Si un estilo musical concreto es con el que más interactúas, el algoritmo lo entenderá y te mostrará especialmente vídeos de ese estilo. 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+¿Quieres saber más? Pues esoera y no te lo pierdas...
