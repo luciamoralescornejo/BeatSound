@@ -1,7 +1,24 @@
-Tu app favorita para el descubrimiento musical. 
+**PRIMER COMMIT: CREACIÓN BASE**
 
-BeatSound es una app basada en scroll. ¿Eres artista y estás cansado de no conseguir la visibilidad que te mereces? ¿O eres oyente y estás cansado de siempre escuchar lo mismo?
+En el primer commit simplemente se ha creado el proyecto en Flutter siguiendo los isguientes pasos:
 
-BeatSound es tu app idónea. Tras un registro con correo y contraseña, podrás navegar entre diversos vídeos con los que interactua (like, dislike, ignorar, seguir o bloquear) e ir creando tu propio algoritmo. Si un estilo musical concreto es con el que más interactúas, el algoritmo lo entenderá y te mostrará especialmente vídeos de ese estilo. 
+1. Te ubicas en la carpeta donde quieres crear el proyecto y haces cd nombre_carpeta en tu cmd. 
+2. Ejecutas flutter create nombre_de_tu_app.
+3. Ahora haces cd en tu app (cd nombre_de_tu_app). 
+4. Entro a la carpeta desde Android Studio para su configuración.
 
-¿Quieres saber más? Pues esoera y no te lo pierdas...
+El siguiente paso es crear una carpeta "assets" donde meto todas las imágenes que mi app va a necesitar. 
+
+Por último configuro el pubspec.yaml. 
+
+****
+
+**SEGUNDO COMMIT: BARRA INFERIOR**
+
+En este commit la app empieza a coger forma. Se crea el menú inferior, importante para la navegación entre las diferentes opciones de la app (inicio, novedades y perfil). 
+
+Para ello, en el main.dart empiezo dando forma a la configuración visual de la app y elijo cuál es la primera pantalla que se debe mostrar. 
+
+Declaro el listado de pestañas que va a tener la barra inferior de la app con un List<> y creo una función para saber qué mostrar depende de qué apartado esté abierto.
+
+****
