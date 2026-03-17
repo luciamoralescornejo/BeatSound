@@ -1,0 +1,41 @@
+name: beatsound_app
+description: "Tu app de descubrimiento musical."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Iconos e Interfaz
+  cupertino_icons: ^1.0.8
+
+  # Reproducción de Vídeo y Selección de Archivos
+  video_player: ^2.11.0
+  image_picker: ^1.2.1
+
+  # Base de Datos y Autenticación (Firebase)
+  firebase_core: ^3.15.2
+  firebase_auth: ^5.7.0
+  cloud_firestore: ^5.6.12
+  firebase_storage: ^12.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/Fondo.png
+    - assets/IniciarSesion.png
+    - assets/Registrarse.png
+    - assets/logo.png
+    - assets/avatares/
