@@ -1,4 +1,4 @@
-**PRIMER COMMIT: CREACIÓN BASE**
+**COMMIT: CREACIÓN DE PROYECTO E IMAGENES NECESARIAS**
 
 En el primer commit simplemente se ha creado el proyecto en Flutter siguiendo los isguientes pasos:
 
@@ -13,7 +13,7 @@ Por último configuro el pubspec.yaml.
 
 ****
 
-**SEGUNDO COMMIT: BARRA INFERIOR**
+**COMMIT: BARRA INFERIOR CREADA**
 
 En este commit la app empieza a coger forma. Se crea el menú inferior, importante para la navegación entre las diferentes opciones de la app (inicio, novedades y perfil). 
 
@@ -22,3 +22,21 @@ Para ello, en el main.dart empiezo dando forma a la configuración visual de la 
 Declaro el listado de pestañas que va a tener la barra inferior de la app con un List<> y creo una función para saber qué mostrar depende de qué apartado esté abierto.
 
 ****
+
+**COMMIT: CREACIÓN PANTALLA LOGIN Y REGISTRO**
+
+Dentro de la carpeta lib creo la clase auth_pages.dart, donde va a estar el código de las páginas de login. 
+
+Lo primero que pongo es la animación que se verá entre páginas, que en mi caso dura 0 segundos para que no se note el cambio (como en las redes sociales). 
+
+Esta clase tiene diversos métodos para ser usados tanto como en la pantalla de inicio de sesión como en la de registro:
+
+1. Método para la cabecera, que pone el logo y luego el texto encima (ambos siendo una imagen).
+2. Método para crear el fondo de la app (imagen) ocupando todo el espacio sin deformarse. 
+3. Método para la creación del botón de rol (artista u oyente). 
+
+Y también la creación de widgets auxiliares como:
+
+1. Un contenedor oscuro para los formularios. 
+2. Los campos de texto grises redondeados. 
+3. Botones grandes y azules. 
