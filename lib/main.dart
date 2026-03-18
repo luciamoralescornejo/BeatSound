@@ -1,3 +1,4 @@
+import 'package:beatsound_app/auth_pages.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class BeatSoundApp extends StatelessWidget {
       ),
 
       //aqui se define cuál es la primera pantalla que se muestra al abrir la app
-      home: const PantallaPrincipal(),
+      home: const PantallaLogin(),
     );
   }
 }
