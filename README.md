@@ -40,3 +40,14 @@ Y también la creación de widgets auxiliares como:
 1. Un contenedor oscuro para los formularios. 
 2. Los campos de texto grises redondeados. 
 3. Botones grandes y azules. 
+
+****
+
+**COMMIT: PANTALLA ELECCIÓN AVATAR**
+
+En este commit he creado la pantalla de elección de avatar que aparece al pulsar el botón de siguiente en el registro.
+
+En la pantalla se reutiliza el header que creamos antes cambiando la imagen del título por la de registro, tiene un circulo que contiene las imagenes y flechas a ambos lados 
+para avanzar o retroceder entre los avatares. Unas vez se pulse el botón se vuelve a la ventana de inicio de sesión.
+
+En un futuro se enlazará para que se guarden los registros y sólo esos son los que pueden iniciar sesión.
