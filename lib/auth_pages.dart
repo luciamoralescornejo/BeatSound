@@ -198,6 +198,112 @@ class _RegistroPaso1State extends State<RegistroPaso1> {
   }
 }
 
+// --- ELEGIR AVATAR ---
+class RegistroAvatarOyente extends StatefulWidget {
+  const RegistroAvatarOyente({super.key});
+
+  @override
+  State<RegistroAvatarOyente> createState() => _RegistroAvatarOyenteState();
+}
+
+class _RegistroAvatarOyenteState extends State<RegistroAvatarOyente> {
+
+  //lista de avatares
+  final List<String> _avatares = List.generate(10, (i) => "assets/avatares/avatar${i + 1}.png");
+  int _indiceActual = 0; //variable para saber el avatar seleccionado
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          _crearFondo(), //mismo fondo
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 40),
+                    _cabeceraConImagen("assets/Registrarse.png"), //usa el mismo header pero diferente texto
+                    const SizedBox(height: 20),
+                    const Text(
+                      "ELIJA UN AVATAR",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 2.5,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    //selector de avatar (caja gris oscura)
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 40),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF262626).withOpacity(0.85),
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: Colors.white10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          //botón de la izquierda, retrocede la lista
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+                            // si estamos en el 0 y restamos 1 volvemos al último
+                            onPressed: () => setState(() => _indiceActual = (_indiceActual - 1 + _avatares.length) % _avatares.length),
+                          ),
+
+                          //contenedor del avatar (circulo azul)
+                          Container(
+                            width: 180,
+                            height: 180,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle, //hace que el borde se vea circular
+                              border: Border.all(color: const Color(0xFF2962FF), width: 3),
+                              boxShadow: [
+                                //efecto neon
+                                BoxShadow(color: const Color(0xFF2962FF).withOpacity(0.4), blurRadius: 40, spreadRadius: 2),
+                              ],
+                            ),
+                            child: ClipOval(
+                              //ClipOval corta la imagen para que encaje en elcirculo
+                              child: Image.asset(_avatares[_indiceActual], fit: BoxFit.cover),
+                            ),
+                          ),
+
+                          //botón de la derecha, avanza la lista
+                          IconButton(
+                            icon: const Icon(Icons.arrow_forward_ios, color: Colors.white),
+                            onPressed: () => setState(() =>
+                            //si llegamos al final y sumamos 1, la lista vuelve al principio
+                            _indiceActual = (_indiceActual + 1) % _avatares.length),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 60),
+
+                    //botón de finalizar el registro
+                    _crearBoton("REGISTRARSE", const Color(0xFF4D6CFF), () {
+                      //popUntil limpia las pantallas y vuelve a la primera
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                    }),
+                    const SizedBox(height: 40),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 // --- WIDGETS AUXILIARES ---
 
 //contenedor oscuro con los campos del formulario
