@@ -164,9 +164,13 @@ class _RegistroPaso1State extends State<RegistroPaso1> {
                     ),
                   ]),
                   const SizedBox(height: 40),
-                  _crearBoton("SIGUIENTE", const Color(0xFF4D6CFF), () {
-                    // aquí iría la lógica para elegir el avatar
-                  }),
+                    _crearBoton("SIGUIENTE", const Color(0xFF4D6CFF), () {
+                      if (esArtista) {
+                        _navegarInstantaneo(context, const RegistroArtistaDatos());
+                      } else {
+                        _navegarInstantaneo(context, const RegistroAvatarOyente());
+                      }
+                    }),
                   const SizedBox(height: 40),
                 ],
               ),
@@ -295,6 +299,59 @@ class _RegistroAvatarOyenteState extends State<RegistroAvatarOyente> {
                     const SizedBox(height: 40),
                   ],
                 ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//metodo para registrar los artsitas
+class RegistroArtistaDatos extends StatelessWidget {
+  const RegistroArtistaDatos({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    //scaffold=lienzo de la pantalla en blanco
+    return Scaffold(
+      backgroundColor: Colors.black,//fondo negro
+      //con stack ponemos capas
+      body: Stack(
+        children: [
+          //primera capa, la imagen de fondo
+          _crearFondo(),
+          //segunda capa, el contenido
+          SafeArea(
+            //con esto el usuario puede hacer srcoll si el contenido es muy largo
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 30), //margen
+              //organiza los elementos en columna
+              child: Column(
+                children: [
+                  const SizedBox(height: 40), //espacio de 40px
+                  _cabeceraConImagen("assets/Registrarse.png"), //imagen de registro sobre la cabecera
+                  const SizedBox(height: 30), //espacio
+                  //formulario completo
+                  _crearContenedorFormulario([
+                    _crearCampoTexto("Nombre artístico"),
+                    const SizedBox(height: 12),
+                    _crearCampoTexto("Descripción"),
+                    const SizedBox(height: 12),
+                    _crearCampoTexto("URL Spotify"),
+                    const SizedBox(height: 12),
+                    _crearCampoTexto("URL Instagram"),
+                    const SizedBox(height: 12),
+                    _crearCampoTexto("URL Tiktok"),
+                  ]),
+                  const SizedBox(height: 40), //espacio
+                  _crearBoton("REGISTRARSE", const Color(0xFF4D6CFF), () { //botón
+                    //con esta línea se vuelve a la primera página y se cierran el resto 
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+                  const SizedBox(height: 40),
+                ],
               ),
             ),
           ),
