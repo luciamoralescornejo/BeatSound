@@ -70,3 +70,13 @@ Se crea la pantalla principal de la app: un feed de vídeos que se deslizan vert
 
 Cada vídeo ocupa toda la pantalla, tiene un degradado oscuro sobre él para que se lea bien el texto, y muestra el nombre del artista y el género musical. 
 También aparece un botón de like que cambia de color al pulsarlo.
+
+****
+
+**COMMIT: VERSIÓN FINAL CLASE VIDEO_CARD**
+
+Se añaden las interacciones al feed de vídeos: 
+1. Deslizar el vídeo hacia la derecha simula seguir al artista, y hacia la izquierda indica que no interesa ese tipo de contenido. 
+2. Hacer doble toque da like automáticamente. 
+
+Se añade un botón de tres puntos en la esquina superior que abre un menú con la opción de bloquear al artista.
