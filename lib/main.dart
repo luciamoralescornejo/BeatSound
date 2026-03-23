@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'auth_pages.dart';
 import 'video_card.dart';
+import 'novedades.dart';
 
 void main() {
   runApp(const BeatSoundApp());
@@ -74,7 +75,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         ),
       ),
       //segunda pagina, el perfil de novedades
-      const Scaffold(body: Center(child: Text('Novedades', style: TextStyle(color: Colors.white)))),
+      const PantallaNovedades(),
       //tercera pagina, el perfil
       const Scaffold(body: Center(child: Text('Perfil', style: TextStyle(color: Colors.white)))),
     ];

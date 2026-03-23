@@ -80,3 +80,10 @@ Se añaden las interacciones al feed de vídeos:
 2. Hacer doble toque da like automáticamente. 
 
 Se añade un botón de tres puntos en la esquina superior que abre un menú con la opción de bloquear al artista.
+
+****
+
+**COMMIT: PANTALLA NOVEDADES**
+
+Se crea la segunda pestaña de la app, Novedades, que muestra los vídeos más recientes subidos a la plataforma. Usa el mismo formato de feed vertical que la 
+pantalla de inicio, limitado a las últimas 20 publicaciones.
