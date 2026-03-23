@@ -347,7 +347,7 @@ class RegistroArtistaDatos extends StatelessWidget {
                   ]),
                   const SizedBox(height: 40), //espacio
                   _crearBoton("REGISTRARSE", const Color(0xFF4D6CFF), () { //botón
-                    //con esta línea se vuelve a la primera página y se cierran el resto 
+                    //con esta línea se vuelve a la primera página y se cierran el resto
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   }),
                   const SizedBox(height: 40),

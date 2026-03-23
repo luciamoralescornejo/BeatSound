@@ -1,78 +1,100 @@
-import 'package:beatsound_app/auth_pages.dart';
 import 'package:flutter/material.dart';
+import 'auth_pages.dart';
+import 'video_card.dart';
 
 void main() {
   runApp(const BeatSoundApp());
 }
 
-//define la configuración global de la app
+//configuración global
 class BeatSoundApp extends StatelessWidget {
   const BeatSoundApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //quita la etiqueta roja de debug de la esquina por defecto
+      debugShowCheckedModeBanner: false, //quita la barra debug
       title: 'BeatSound',
-
-      //configutación visual de toda la app
       theme: ThemeData(
-        brightness: Brightness.dark, //por defecto tendrá el modo oscuro
-        scaffoldBackgroundColor: Colors.black, //el fondo de la pantalla es negro
-        primaryColor: const Color(0xFF2962FF), //el primario es un azul electrico que hace constraste con el negro
-        iconTheme: const IconThemeData(color: Colors.white), //los iconos blancos
+        brightness: Brightness.dark, //modo oscuro
+        scaffoldBackgroundColor: Colors.black, //fondo negro
+        primaryColor: const Color(0xFF2962FF), //el color primario es el azul
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
-
-      //aqui se define cuál es la primera pantalla que se muestra al abrir la app
+      //la app empieza con la pantalla de login
       home: const PantallaLogin(),
     );
   }
 }
 
+//pantalla principal
 class PantallaPrincipal extends StatefulWidget {
   const PantallaPrincipal({super.key});
 
-  //crea el estado, el encargado de guardar los datos cambiantes
   @override
   State<PantallaPrincipal> createState() => _PantallaPrincipalState();
 }
 
-//este es el estado, tiene la lógica de la pantalla principal
 class _PantallaPrincipalState extends State<PantallaPrincipal> {
-  int _indiceActual = 0; //variable para conocer qué pestaña esta seleccionada en el menu
+  //variable para saber en qué pestaña del menú de abajo estamos
+  int _indiceActual = 0;
 
-  //lista de pestañas (inicio, novedades o perfil)
-  final List<Widget> _paginas = [
-    const Scaffold(body: Center(child: Text('Inicio', style: TextStyle(color: Colors.white)))),
-    const Scaffold(body: Center(child: Text('Novedades', style: TextStyle(color: Colors.white)))),
-    const Scaffold(body: Center(child: Text('Perfil', style: TextStyle(color: Colors.white)))),
+  //esto es como la "base de datos"
+  final List<Map<String, String>> videosPrueba = [
+    {
+      "url": "https://assets.mixkit.co/videos/preview/mixkit-girl-dancing-at-a-party-with-neon-lights-42502-large.mp4",
+      "artista": "Yyy891",
+      "estilo": "Trap"
+    },
+    {
+      "url": "https://assets.mixkit.co/videos/preview/mixkit-man-dancing-under-a-street-light-at-night-42517-large.mp4",
+      "artista": "Galle",
+      "estilo": "Reggaeton"
+    },
+    {
+      "url": "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-dj-playing-music-at-a-party-42533-large.mp4",
+      "artista": "GlorySixVain",
+      "estilo": "Trap"
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
+    //definición de las páginas
+    final List<Widget> paginas = [
+      //primera pagina, el inicio
+      PageView.builder(
+        scrollDirection: Axis.vertical, //el sroll hacia arriba y abajo como tiktok
+        itemCount: videosPrueba.length, //de momento, los tres videos de la bd
+        itemBuilder: (context, index) => VideoCard(
+          // por cada vídeo se crea una tarjeta
+          rutaArchivo: videosPrueba[index]["url"]!,
+          artista: videosPrueba[index]["artista"]!,
+          estilo: videosPrueba[index]["estilo"]!,
+        ),
+      ),
+      //segunda pagina, el perfil de novedades
+      const Scaffold(body: Center(child: Text('Novedades', style: TextStyle(color: Colors.white)))),
+      //tercera pagina, el perfil
+      const Scaffold(body: Center(child: Text('Perfil', style: TextStyle(color: Colors.white)))),
+    ];
 
-    //scaffold muestra la estructura básica de cualquier pantalla de flutter
     return Scaffold(
       backgroundColor: Colors.black,
+      //se muestra la página que indica el menú de abajo
+      body: paginas[_indiceActual],
 
-      //muestra la página según el num que guarde la variable
-      body: _paginas[_indiceActual],
-
-      //barra de navegación de abajo
+      //menu de navegacion
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, //los iconos estan fijados
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
-        selectedItemColor: const Color(0xFF2962FF), //cuando se selecciona, el icono y la letra es azul
-        unselectedItemColor: Colors.white60, //gris cuando está sin seleccionar
-        currentIndex: _indiceActual, //le dice a la barra qué icono poner en azul
-        showUnselectedLabels: false, //oculta el texto de debajo del icono si no esta seleccionado
-
-        //funcion que se ejecuta cuando el usuario pulsa un icono
-        onTap: (index) =>
-        //setState es vital para avisar a flutter del cambio de variabe
-        setState(() => _indiceActual = index),
-
-        //botones de la barra inferior
+        selectedItemColor: const Color(0xFF2962FF),
+        unselectedItemColor: Colors.white60,
+        currentIndex: _indiceActual, //marca el icono actual como encendido
+        showUnselectedLabels: false, //no muestra el texto cuando no esta encendido
+        //al tocar un cono, actualiza el estado pa el cambioi de pagina
+        onTap: (index) => setState(() => _indiceActual = index),
+        //cada apartado del menu
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Inicio'),
           BottomNavigationBarItem(icon: Icon(Icons.star_rounded), label: 'Novedades'),
