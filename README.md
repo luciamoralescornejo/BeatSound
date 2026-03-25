@@ -92,7 +92,25 @@ pantalla de inicio, limitado a las últimas 20 publicaciones.
 
 **COMMIT: PERFIL OYENTES**
 
-Se crea la pantalla de perfil para los usuarios oyentes. Muestra su foto de perfil, nombre de usuario y dos listas: los artistas a los que sigue y los que tiene 
-bloqueados. 
+Se crea la pantalla de perfil para los usuarios oyentes. Muestra: 
+1. Su foto de perfil
+2. Nombre de usuario 
+3. Dos listas: los artistas a los que sigue y los que tiene bloqueados
 
 Desde esta pantalla puede dejar de seguir a un artista o desbloquearlo, y la app confirma cada acción con un mensaje emergente.
+
+****
+
+**COMMIT: PERFIL OYENTES**
+
+Se crea la pantalla de perfil para los artistas. Muestra:
+1. Su foto 
+2. Nombre artístico
+3. Número de seguidores 
+4. Likes totales
+5. Una cuadrícula con todos sus vídeos publicados
+
+Los artistas además tienen un botón flotante azul con un símbolo "+" para acceder a la pantalla de subida de contenido.
+
+Además, se crea la pantalla desde la que los artistas pueden subir nuevos vídeos. Permite seleccionar un vídeo del móvil, introducir el género musical y publicarlo. 
+Mientras no se haya seleccionado ningún vídeo, el botón de publicar avisa de que falta ese paso.

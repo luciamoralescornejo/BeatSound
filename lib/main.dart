@@ -3,6 +3,7 @@ import 'auth_pages.dart';
 import 'video_card.dart';
 import 'novedades.dart';
 import 'perfil_oyente.dart';
+import 'perfil_artista.dart';
 
 void main() {
   runApp(const BeatSoundApp());
